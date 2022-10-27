@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageview_team_1"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="@dimen/default_dimens"
+        android:contentDescription="@string/description_team_1_logo"
+        app:layout_constraintEnd_toStartOf="@id/textview_vs"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_team_1_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_dimens"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/imageview_team_1"
+        app:layout_constraintStart_toStartOf="@id/imageview_team_1"
+        app:layout_constraintTop_toBottomOf="@id/imageview_team_1"
+        tools:text="Team 1" />
+
+    <TextView
+        android:id="@+id/textview_vs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_vs"
+        android:textColor="@color/secondary_text_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imageview_team_2"
+        app:layout_constraintStart_toEndOf="@id/imageview_team_1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageview_team_2"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="@dimen/default_dimens"
+        android:contentDescription="@string/description_team_2_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/textview_vs"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_team_2_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_dimens"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/imageview_team_2"
+        app:layout_constraintStart_toStartOf="@id/imageview_team_2"
+        app:layout_constraintTop_toBottomOf="@id/imageview_team_2"
+        tools:text="Team 1" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

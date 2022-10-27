@@ -3,18 +3,16 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
+    id 'com.google.dagger.hilt.android'
 }
 
-apply plugin: 'com.android.application'
-apply plugin: 'com.google.dagger.hilt.android'
-
 android {
-    compileSdk 31
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.samfonsec.fuzecs"
         minSdk 24
-        targetSdk 31
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 

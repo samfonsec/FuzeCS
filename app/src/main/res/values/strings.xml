@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">FuzeCS</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
+
+    <string name="home_fragment">Partidas</string>
+
     <string name="label_vs">vs</string>
     <string name="previous">Previous</string>
 

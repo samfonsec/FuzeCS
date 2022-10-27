@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/small_dimens"
+    android:layout_marginVertical="@dimen/card_horizontal_margin"
+    android:layout_marginHorizontal="@dimen/card_vertical_margin"
     app:cardBackgroundColor="@color/secondary_color"
     app:cardCornerRadius="@dimen/card_radius">
 
@@ -13,35 +14,42 @@
         android:layout_height="match_parent">
 
         <com.samfonsec.fuzecs.view.component.MatchView
+            android:id="@+id/matchview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_dimen"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2" />
 
         <View
             android:id="@+id/view_divider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginBottom="@dimen/default_dimens"
+            android:layout_marginTop="@dimen/medium_dimen"
+            android:layout_marginBottom="@dimen/small_dimen"
             android:background="@color/tag_color"
-            app:layout_constraintBottom_toTopOf="@id/imageview_league" />
+            app:layout_constraintBottom_toTopOf="@id/imageview_league"
+            app:layout_constraintTop_toBottomOf="@id/matchview" />
 
         <ImageView
             android:id="@+id/imageview_league"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginStart="@dimen/medium_dimens"
-            android:layout_marginBottom="@dimen/default_dimens"
+            android:layout_marginStart="@dimen/medium_dimen"
+            android:layout_marginBottom="@dimen/small_dimen"
             android:contentDescription="@string/description_league_logo"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_divider"
+            tools:background="@color/placeholder_color" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/small_dimens"
+            android:layout_marginStart="@dimen/small_dimen"
             android:textColor="@color/secondary_text_color"
             android:textSize="@dimen/small_text_size"
             app:layout_constraintBottom_toBottomOf="@id/imageview_league"

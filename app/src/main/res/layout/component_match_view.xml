@@ -5,17 +5,17 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageview_team_1"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginEnd="@dimen/medium_dimen"
         android:contentDescription="@string/description_team_1_logo"
+        android:src="@drawable/img_circle"
         app:layout_constraintEnd_toStartOf="@id/textview_vs"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:background="@color/placeholder_color" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textview_team_1_name"
@@ -39,16 +39,16 @@
         app:layout_constraintStart_toEndOf="@id/imageview_team_1"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageview_team_2"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginStart="@dimen/medium_dimen"
         android:contentDescription="@string/description_team_2_logo"
+        android:src="@drawable/img_circle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/textview_vs"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:background="@color/placeholder_color" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textview_team_2_name"
@@ -59,6 +59,6 @@
         app:layout_constraintEnd_toEndOf="@id/imageview_team_2"
         app:layout_constraintStart_toStartOf="@id/imageview_team_2"
         app:layout_constraintTop_toBottomOf="@id/imageview_team_2"
-        tools:text="Team 1" />
+        tools:text="Team 2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

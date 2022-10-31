@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.samfonsec.fuzecs.databinding.ItemMatchBinding
 import com.samfonsec.fuzecs.model.Match
+import com.samfonsec.fuzecs.utils.loadIfNotNull
 
 class MatchAdapter(
     private val onItemClicked: (Match) -> Unit
@@ -25,9 +26,17 @@ class MatchAdapter(
     }
 
     class ViewHolder(private val binding: ItemMatchBinding) : RecyclerView.ViewHolder(binding.root) {
+
         fun bind(match: Match) {
             with(binding) {
-
+                match.getFirstTeam()?.let {
+                    matchview.setFirstTeam(it.name, it.image_url)
+                }
+                match.getSecondTeam()?.let {
+                    matchview.setSecondTeam(it.name, it.image_url)
+                }
+                imageviewLeague.loadIfNotNull(match.league.image_url)
+                textviewLeague.text = match.getLeagueAndSerie()
             }
         }
     }

@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="@dimen/card_horizontal_margin"
     android:layout_marginHorizontal="@dimen/card_vertical_margin"
+    android:layout_marginVertical="@dimen/card_horizontal_margin"
+    android:foreground="?selectableItemBackground"
     app:cardBackgroundColor="@color/secondary_color"
     app:cardCornerRadius="@dimen/card_radius">
 
@@ -41,15 +42,17 @@
             android:layout_marginStart="@dimen/medium_dimen"
             android:layout_marginBottom="@dimen/small_dimen"
             android:contentDescription="@string/description_league_logo"
+            android:src="@drawable/img_circle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view_divider"
-            tools:background="@color/placeholder_color" />
+            app:layout_constraintTop_toBottomOf="@id/view_divider" />
 
         <TextView
+            android:id="@+id/textview_league"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/small_dimen"
+            android:layout_marginEnd="@dimen/default_dimen"
             android:textColor="@color/secondary_text_color"
             android:textSize="@dimen/small_text_size"
             app:layout_constraintBottom_toBottomOf="@id/imageview_league"

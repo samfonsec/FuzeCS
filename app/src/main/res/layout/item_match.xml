@@ -61,6 +61,27 @@
             app:layout_constraintTop_toTopOf="@id/imageview_league"
             tools:text="League + serie" />
 
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageview_date_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/placeholder_color"
+            app:layout_constraintBottom_toBottomOf="@id/textview_time"
+            app:layout_constraintEnd_toEndOf="@id/textview_time"
+            app:layout_constraintStart_toStartOf="@id/textview_time"
+            app:layout_constraintTop_toTopOf="@id/textview_time"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.FuzeCS.DateBG" />
+
+        <TextView
+            android:id="@+id/textview_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/small_dimen"
+            android:textSize="@dimen/small_text_size"
+            android:text="Hoje, 22:00"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

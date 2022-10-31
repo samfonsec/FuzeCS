@@ -1,10 +1,12 @@
 package com.samfonsec.fuzecs.di
 
+import android.content.Context
 import com.samfonsec.fuzecs.data.api.AuthInterceptor
 import com.samfonsec.fuzecs.utils.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -19,8 +21,8 @@ object ServiceModule {
 
     @Singleton
     @Provides
-    fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
-        .addInterceptor(AuthInterceptor())
+    fun provideOkHttpClient(@ApplicationContext context: Context): OkHttpClient = OkHttpClient.Builder()
+        .addInterceptor(AuthInterceptor(context))
         .addInterceptor(HttpLoggingInterceptor().setLevel(Level.BODY))
         .build()
 

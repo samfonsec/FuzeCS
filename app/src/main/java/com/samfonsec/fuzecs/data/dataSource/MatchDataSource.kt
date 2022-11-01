@@ -11,7 +11,9 @@ class MatchDataSource @Inject constructor(
     private val api: MatchApi
 ) : MatchRepository {
 
-    override suspend fun getMatches(page: Int): Response<List<Match>> = api.getMatches(page)
+    override suspend fun getRunningMatches(): Response<List<Match>> = api.getRunningMatches()
+
+    override suspend fun getUpcomingMatches(page: Int): Response<List<Match>> = api.getUpcomingMatches(page)
 
     override suspend fun getMatchDetails(matchId: Int): Response<DetailsResponse> = api.getMatchDetails(matchId)
 }

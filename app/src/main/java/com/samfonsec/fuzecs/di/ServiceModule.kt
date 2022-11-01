@@ -33,5 +33,4 @@ object ServiceModule {
         .baseUrl(BASE_URL)
         .client(okHttpClient)
         .build()
-
 }

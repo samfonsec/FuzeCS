@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.samfonsec.fuzecs.data.api.Status
 import com.samfonsec.fuzecs.data.repository.MatchRepository
 import com.samfonsec.fuzecs.model.Match
+import com.samfonsec.fuzecs.utils.Constants.FIRST_PAGE
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -19,12 +20,33 @@ class HomeViewModel @Inject constructor(
     private val _onResult = MutableLiveData<Status<List<Match>>>()
     val onResult: LiveData<Status<List<Match>>> = _onResult
 
-    fun getMatches(page: Int) = viewModelScope.launch {
+    private val liveMatches: MutableList<Match> = mutableListOf()
+
+    fun getRunningMatches() = viewModelScope.launch {
         _onResult.postValue(Status.Loading)
-        repository.getMatches(page).run {
-            if (isSuccessful)
-                _onResult.postValue(Status.Success(body()))
-            else
+        repository.getRunningMatches().run {
+            if (isSuccessful) {
+                body()?.let { liveMatches += it }
+                getUpcomingMatches(FIRST_PAGE)
+            } else
+                _onResult.postValue(Status.Error(errorBody().toString()))
+        }
+    }
+
+    fun loadMoreUpcomingMatches(page: Int) = viewModelScope.launch {
+        getUpcomingMatches(page)
+    }
+
+    private suspend fun getUpcomingMatches(page: Int) {
+        repository.getUpcomingMatches(page).run {
+            if (isSuccessful) {
+                val list = arrayListOf<Match>()
+                if (page == FIRST_PAGE)
+                    list += liveMatches
+
+                body()?.let { list += it }
+                _onResult.postValue(Status.Success(list))
+            } else
                 _onResult.postValue(Status.Error(errorBody().toString()))
         }
     }

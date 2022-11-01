@@ -6,6 +6,7 @@ import retrofit2.Response
 
 interface MatchRepository {
 
-    suspend fun getMatches(page: Int): Response<List<Match>>
+    suspend fun getRunningMatches(): Response<List<Match>>
+    suspend fun getUpcomingMatches(page: Int): Response<List<Match>>
     suspend fun getMatchDetails(matchId: Int): Response<DetailsResponse>
 }

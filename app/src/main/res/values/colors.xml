@@ -5,6 +5,7 @@
     <color name="white">#FFFFFF</color>
     <color name="primary_text_color">#FFFFFF</color>
     <color name="secondary_text_color">#AAFFFFFF</color>
-    <color name="tag_color">#525161</color>
     <color name="placeholder_color">#C4C4C4</color>
+    <color name="tag_color">#515060</color>
+    <color name="live_match_color">#F42A35</color>
 </resources>

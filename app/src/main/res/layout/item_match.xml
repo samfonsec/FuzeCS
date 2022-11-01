@@ -65,7 +65,7 @@
             android:id="@+id/imageview_date_background"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/placeholder_color"
+            android:background="@color/tag_color"
             app:layout_constraintBottom_toBottomOf="@id/textview_time"
             app:layout_constraintEnd_toEndOf="@id/textview_time"
             app:layout_constraintStart_toStartOf="@id/textview_time"
@@ -78,9 +78,10 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/small_dimen"
             android:textSize="@dimen/small_text_size"
-            android:text="Hoje, 22:00"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Hoje, 22:00" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

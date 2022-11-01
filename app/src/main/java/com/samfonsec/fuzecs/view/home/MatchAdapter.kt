@@ -2,9 +2,11 @@ package com.samfonsec.fuzecs.view.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.samfonsec.fuzecs.R
 import com.samfonsec.fuzecs.databinding.ItemMatchBinding
 import com.samfonsec.fuzecs.model.Match
 import com.samfonsec.fuzecs.utils.loadIfNotNull
@@ -37,6 +39,22 @@ class MatchAdapter(
                 }
                 imageviewLeague.loadIfNotNull(match.league.image_url)
                 textviewLeague.text = match.getLeagueAndSerie()
+            }
+            setMatchTime(match)
+        }
+
+        private fun setMatchTime(match: Match) {
+            with(binding) {
+                root.context.run {
+                    if (match.isLive()) {
+                        imageviewDateBackground.setBackgroundColor(getColor(R.color.live_match_color))
+                        textviewTime.text = getString(R.string.live)
+                    } else {
+                        textviewTime.text = match.getFormattedTime(getString(R.string.today))
+                        imageviewDateBackground.isVisible != textviewTime.text.isNullOrEmpty()
+                        imageviewDateBackground.setBackgroundColor(getColor(R.color.tag_color))
+                    }
+                }
             }
         }
     }

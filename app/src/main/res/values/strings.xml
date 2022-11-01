@@ -5,12 +5,10 @@
     <string name="home_fragment">Partidas</string>
 
     <string name="label_vs">vs</string>
-    <string name="previous">Previous</string>
+    <string name="today">Hoje</string>
+    <string name="live">AGORA</string>
 
     <string name="description_team_1_logo">Logo do time 1</string>
     <string name="description_team_2_logo">Logo do time 2</string>
     <string name="description_league_logo">Logo da liga</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>

@@ -1,39 +1,42 @@
 package com.samfonsec.fuzecs.view
 
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupWithNavController
 import com.samfonsec.fuzecs.R
 import com.samfonsec.fuzecs.databinding.ActivityMainBinding
+import com.samfonsec.fuzecs.utils.Constants.MAIN_BACK_STACK
+import com.samfonsec.fuzecs.view.home.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.toolbar)
-        setupNavigation()
+        showHomeFragment()
+        setupBackPressed()
     }
 
-    private fun setupNavigation() {
-        (supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment).run {
-            appBarConfiguration = AppBarConfiguration(navController.graph)
-            binding.toolbar.setupWithNavController(navController, appBarConfiguration)
-        }
+    private fun showHomeFragment() {
+        supportFragmentManager.beginTransaction()
+            .add(R.id.framelayout_container, HomeFragment())
+            .addToBackStack(MAIN_BACK_STACK)
+            .commit()
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    private fun setupBackPressed() {
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (isFirstFragment())
+                    finish()
+            }
+        })
     }
+
+    private fun isFirstFragment() = supportFragmentManager.fragments.size == 1
 }

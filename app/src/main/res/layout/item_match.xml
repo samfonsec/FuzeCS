@@ -8,7 +8,7 @@
     android:layout_marginVertical="@dimen/card_horizontal_margin"
     android:foreground="?selectableItemBackground"
     app:cardBackgroundColor="@color/secondary_color"
-    app:cardCornerRadius="@dimen/card_radius">
+    app:cardCornerRadius="@dimen/default_radius">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
             android:layout_marginStart="@dimen/medium_dimen"
             android:layout_marginBottom="@dimen/small_dimen"
             android:contentDescription="@string/description_league_logo"
-            android:src="@drawable/img_circle"
+            android:src="@drawable/placeholder_circle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_divider" />
@@ -70,7 +70,7 @@
             app:layout_constraintEnd_toEndOf="@id/textview_time"
             app:layout_constraintStart_toStartOf="@id/textview_time"
             app:layout_constraintTop_toTopOf="@id/textview_time"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.FuzeCS.DateBG" />
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.FuzeCS.DateBg" />
 
         <TextView
             android:id="@+id/textview_time"

@@ -1,9 +1,13 @@
 package com.samfonsec.fuzecs.model
 
+import android.os.Parcelable
 import android.text.format.DateUtils
+import com.samfonsec.fuzecs.utils.Constants.SECOND_TEAM_INDEX
+import kotlinx.parcelize.Parcelize
 import java.text.SimpleDateFormat
 import java.util.*
 
+@Parcelize
 data class Match(
     val id: Int,
     val begin_at: Date?,
@@ -11,9 +15,9 @@ data class Match(
     val serie: Serie,
     val status: String,
     val opponents: List<Opponents>,
-) {
-    fun getLeagueAndSerie() = serie.name.takeIf { !it.isNullOrEmpty() }?.let {
-        "${league.name}\n$it"
+): Parcelable {
+    fun getLeagueAndSerie(separator: String = "\n") = serie.name.takeIf { !it.isNullOrEmpty() }?.let {
+        "${league.name}$separator$it"
     } ?: league.name
 
     fun getFirstTeam() = opponents.firstOrNull()?.opponent
@@ -52,7 +56,6 @@ data class Match(
     }
 
     companion object {
-        private const val SECOND_TEAM_INDEX = 1
         private const val TIME_FORMAT = "HH:mm"
         private const val CURRENT_WEEK_FORMAT = "EE, $TIME_FORMAT"
         private const val DEFAULT_FORMAT = "dd.MM, $TIME_FORMAT"

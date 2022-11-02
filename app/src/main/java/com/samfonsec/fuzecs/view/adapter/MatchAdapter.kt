@@ -1,4 +1,4 @@
-package com.samfonsec.fuzecs.view.home
+package com.samfonsec.fuzecs.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.samfonsec.fuzecs.R
 import com.samfonsec.fuzecs.databinding.ItemMatchBinding
 import com.samfonsec.fuzecs.model.Match
-import com.samfonsec.fuzecs.utils.loadIfNotNull
+import com.samfonsec.fuzecs.utils.loadImageOrPlaceholder
 
 class MatchAdapter(
     private val onItemClicked: (Match) -> Unit
@@ -37,7 +37,7 @@ class MatchAdapter(
                 match.getSecondTeam()?.let {
                     matchview.setSecondTeam(it.name, it.image_url)
                 }
-                imageviewLeague.loadIfNotNull(match.league.image_url)
+                imageviewLeague.loadImageOrPlaceholder(match.league.image_url)
                 textviewLeague.text = match.getLeagueAndSerie()
             }
             setMatchTime(match)

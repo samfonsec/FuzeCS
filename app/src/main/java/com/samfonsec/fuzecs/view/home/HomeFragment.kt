@@ -10,13 +10,18 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
+import com.samfonsec.fuzecs.R
 import com.samfonsec.fuzecs.data.api.Status
 import com.samfonsec.fuzecs.databinding.FragmentHomeBinding
 import com.samfonsec.fuzecs.model.Match
 import com.samfonsec.fuzecs.utils.Constants.FIRST_PAGE
+import com.samfonsec.fuzecs.utils.Constants.MAIN_BACK_STACK
 import com.samfonsec.fuzecs.utils.PaginationScrollListener
-import com.samfonsec.fuzecs.viewModel.HomeViewModel
+import com.samfonsec.fuzecs.view.adapter.MatchAdapter
+import com.samfonsec.fuzecs.view.details.DetailsFragment
+import com.samfonsec.fuzecs.viewModel.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -84,7 +89,7 @@ class HomeFragment : Fragment() {
 
     private fun onError(message: String) {
         hideProgress()
-        Snackbar.make(binding.root, message, Snackbar.LENGTH_INDEFINITE).show()
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).show()
     }
 
     private fun showProgress() {
@@ -106,7 +111,12 @@ class HomeFragment : Fragment() {
     }
 
     private fun onItemClicked(match: Match) {
-        Snackbar.make(binding.root, match.begin_at.toString(), Snackbar.LENGTH_LONG).show()
+        activity?.run {
+            supportFragmentManager.beginTransaction()
+                .add(R.id.framelayout_container, DetailsFragment.newInstance(match))
+                .addToBackStack(MAIN_BACK_STACK)
+                .commit()
+        }
     }
 
     override fun onDestroyView() {

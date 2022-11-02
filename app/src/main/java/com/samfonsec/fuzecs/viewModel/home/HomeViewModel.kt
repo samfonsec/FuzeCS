@@ -1,4 +1,4 @@
-package com.samfonsec.fuzecs.viewModel
+package com.samfonsec.fuzecs.viewModel.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -4,15 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".view.home.HomeFragment">
+
+    <TextView
+        android:id="@+id/textview_matches_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/default_dimen"
+        android:layout_marginTop="@dimen/default_dimen"
+        android:text="@string/title_matches"
+        android:textSize="@dimen/title_text_size"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_matches"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/default_dimen"
         android:clipToPadding="false"
-        android:paddingVertical="@dimen/small_dimen"
+        android:visibility="visible"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_matches_title"
         tools:listitem="@layout/item_match" />
 
     <ProgressBar

@@ -12,14 +12,13 @@ abstract class PaginationScrollListener(
     private var currentPage = FIRST_PAGE
     private var previousTotalItemCount = 0
     private var loading = true
-    private val startingPageIndex = FIRST_PAGE
 
     override fun onScrolled(view: RecyclerView, dx: Int, dy: Int) {
         val totalItemCount = layoutManager.itemCount
         val lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition()
 
         if (totalItemCount < previousTotalItemCount) {
-            this.currentPage = this.startingPageIndex
+            this.currentPage = FIRST_PAGE
             this.previousTotalItemCount = totalItemCount
             if (totalItemCount == 0) {
                 this.loading = true
@@ -41,7 +40,7 @@ abstract class PaginationScrollListener(
     abstract fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView)
 
     fun resetState() {
-        this.currentPage = this.startingPageIndex
+        this.currentPage = FIRST_PAGE
         this.previousTotalItemCount = 0
         this.loading = true
     }

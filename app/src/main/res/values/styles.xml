@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="ShapeAppearanceOverlay.FuzeCS.DateBG" parent="">
-        <item name="cornerSizeBottomLeft">@dimen/card_radius</item>
+    <style name="ShapeAppearanceOverlay.FuzeCS.DateBg" parent="">
+        <item name="cornerSizeBottomLeft">@dimen/default_radius</item>
         <item name="cornerFamilyBottomLeft">rounded</item>
     </style>
+
+    <style name="ShapeAppearanceOverlay.FuzeCS.Player1Bg" parent="">
+        <item name="cornerSizeTopRight">@dimen/default_radius</item>
+        <item name="cornerSizeBottomRight">@dimen/default_radius</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.FuzeCS.Player2Bg" parent="">
+        <item name="cornerSizeTopLeft">@dimen/default_radius</item>
+        <item name="cornerSizeBottomLeft">@dimen/default_radius</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.FuzeCS.Player" parent="">
+        <item name="cornerSizeTopLeft">@dimen/small_radius</item>
+        <item name="cornerSizeTopRight">@dimen/small_radius</item>
+        <item name="cornerSizeBottomLeft">@dimen/small_radius</item>
+        <item name="cornerSizeBottomRight">@dimen/small_radius</item>
+
+    </style>
+
 </resources>

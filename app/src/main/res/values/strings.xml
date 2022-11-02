@@ -2,7 +2,7 @@
     <string name="app_name">FuzeCS</string>
     <string name="auth_key">g7vUh-3W9uDI9nyHpxUN9pbUuSJWHgncZCy62xCZHDALl4JVXSk</string>
 
-    <string name="home_fragment">Partidas</string>
+    <string name="title_matches">Partidas</string>
 
     <string name="label_vs">vs</string>
     <string name="today">Hoje</string>

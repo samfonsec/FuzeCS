@@ -1,6 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/default_dimen">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageview_bg_player_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/x_small_dimen"
+        android:layout_marginEnd="@dimen/small_dimen"
+        android:src="@color/secondary_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imageview_bg_player_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.FuzeCS.Player1Bg" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageview_bg_player_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/small_dimen"
+        android:layout_marginTop="@dimen/x_small_dimen"
+        android:src="@color/secondary_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageview_bg_player_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.FuzeCS.Player2Bg" />
+
+    <TextView
+        android:id="@+id/textview_player_1_nickname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_dimen"
+        android:layout_marginEnd="@dimen/default_dimen"
+        android:textAlignment="textEnd"
+        app:layout_constraintBottom_toTopOf="@id/textview_player_1_name"
+        app:layout_constraintEnd_toStartOf="@id/imageview_player_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Nickname" />
+
+    <TextView
+        android:id="@+id/textview_player_1_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_dimen"
+        android:textAlignment="textEnd"
+        android:textColor="@color/secondary_text_color"
+        android:textSize="@dimen/secondary_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/textview_player_1_nickname"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_player_1_nickname"
+        tools:text="Nome Jogador" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageview_player_1"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="@dimen/player_image_margin"
+        android:layout_marginBottom="@dimen/player_image_margin"
+        android:scaleType="fitXY"
+        android:src="@drawable/placeholder_rounded"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/imageview_bg_player_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.FuzeCS.Player" />
+
+    <TextView
+        android:id="@+id/textview_player_2_nickname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_dimen"
+        android:layout_marginTop="@dimen/default_dimen"
+        app:layout_constraintBottom_toTopOf="@id/textview_player_2_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageview_player_2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Nickname" />
+
+    <TextView
+        android:id="@+id/textview_player_2_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_dimen"
+        android:textColor="@color/secondary_text_color"
+        android:textSize="@dimen/secondary_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/textview_player_2_nickname"
+        app:layout_constraintTop_toBottomOf="@id/textview_player_2_nickname"
+        tools:text="Nome Jogador" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageview_player_2"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="@dimen/player_image_margin"
+        android:layout_marginBottom="@dimen/player_image_margin"
+        android:scaleType="fitXY"
+        android:src="@color/placeholder_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/imageview_bg_player_2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.FuzeCS.Player" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

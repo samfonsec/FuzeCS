@@ -9,7 +9,6 @@
         android:id="@+id/HomeFragment"
         android:name="com.samfonsec.fuzecs.view.home.HomeFragment"
         tools:layout="@layout/fragment_home">
-
         <action
             android:id="@+id/action_HomeFragment_to_DetailsFragment"
             app:destination="@id/DetailsFragment" />
@@ -17,5 +16,16 @@
     <fragment
         android:id="@+id/DetailsFragment"
         android:name="com.samfonsec.fuzecs.view.details.DetailsFragment"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details">
+        <argument
+            android:name="matchId"
+            android:defaultValue="0"
+            app:argType="integer" />
+
+<!--        <action-->
+<!--            android:id="@+id/action_DetailsFragment_to_HomeFragment"-->
+<!--            app:destination="@id/HomeFragment"-->
+<!--            app:popUpTo="@id/DetailsFragment"-->
+<!--            app:popUpToInclusive="true" />-->
+    </fragment>
 </navigation>

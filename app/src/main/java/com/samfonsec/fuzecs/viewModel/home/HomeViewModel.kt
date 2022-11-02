@@ -29,15 +29,16 @@ class HomeViewModel @Inject constructor(
                 body()?.let { liveMatches += it }
                 getUpcomingMatches(FIRST_PAGE)
             } else
-                _onResult.postValue(Status.Error(errorBody().toString()))
+                _onResult.postValue(Status.Error(RUNNING_MATCHES_ERROR))
         }
     }
 
     fun loadMoreUpcomingMatches(page: Int) = viewModelScope.launch {
-        getUpcomingMatches(page)
+        _onResult.postValue(Status.Loading)
+        getUpcomingMatches(page, true)
     }
 
-    private suspend fun getUpcomingMatches(page: Int) {
+    private suspend fun getUpcomingMatches(page: Int, error: Boolean = false) {
         repository.getUpcomingMatches(page).run {
             if (isSuccessful) {
                 val list = arrayListOf<Match>()
@@ -47,7 +48,12 @@ class HomeViewModel @Inject constructor(
                 body()?.let { list += it }
                 _onResult.postValue(Status.Success(list.filter { it.getFirstTeam() != null && it.getSecondTeam() != null }))
             } else
-                _onResult.postValue(Status.Error(errorBody().toString()))
+                _onResult.postValue(Status.Error(UPCOMING_MATCHES_ERROR))
         }
+    }
+
+    companion object {
+        const val RUNNING_MATCHES_ERROR = 0
+        const val UPCOMING_MATCHES_ERROR = 1
     }
 }

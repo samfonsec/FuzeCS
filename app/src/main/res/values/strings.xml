@@ -3,7 +3,8 @@
     <string name="auth_key">g7vUh-3W9uDI9nyHpxUN9pbUuSJWHgncZCy62xCZHDALl4JVXSk</string>
 
     <string name="title_matches">Partidas</string>
-
+    <string name="action_try_again">Tentar novamente</string>
+    <string name="label_error">Ocorreu um erro inesperado!</string>
     <string name="label_vs">vs</string>
     <string name="today">Hoje</string>
     <string name="live">AGORA</string>

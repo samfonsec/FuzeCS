@@ -26,7 +26,7 @@ class DetailsViewModel @Inject constructor(
             if (isSuccessful) {
                 _onResult.postValue(Status.Success(body()))
             } else
-                _onResult.postValue(Status.Error(errorBody().toString()))
+                _onResult.postValue(Status.Error(0))
         }
     }
 }

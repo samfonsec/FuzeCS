@@ -66,4 +66,9 @@
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="toolbar,matchview_details,textview_match_time,recyclerview_players" />
 
+    <include
+        android:id="@+id/errorview"
+        android:visibility="gone"
+        layout="@layout/layout_error_view" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

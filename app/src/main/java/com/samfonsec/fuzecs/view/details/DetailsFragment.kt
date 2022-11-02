@@ -6,17 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.core.os.bundleOf
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.snackbar.Snackbar
 import com.samfonsec.fuzecs.R
 import com.samfonsec.fuzecs.data.api.Status
 import com.samfonsec.fuzecs.databinding.FragmentDetailsBinding
 import com.samfonsec.fuzecs.model.Match
 import com.samfonsec.fuzecs.model.OpponentsResponse
+import com.samfonsec.fuzecs.utils.hide
 import com.samfonsec.fuzecs.utils.parcelable
+import com.samfonsec.fuzecs.utils.show
 import com.samfonsec.fuzecs.view.adapter.PlayerAdapter
 import com.samfonsec.fuzecs.viewModel.details.DetailsViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -45,8 +45,10 @@ class DetailsFragment : Fragment() {
         setupList()
         buildUi()
         setupObservables()
-        match?.let { viewModel.getOpponents(it.id) }
+        loadOpponents()
     }
+
+    private fun loadOpponents() = match?.let { viewModel.getOpponents(it.id) }
 
     private fun setupBackPressed() {
         activity?.run {
@@ -90,7 +92,7 @@ class DetailsFragment : Fragment() {
         viewModel.onResult.observe(viewLifecycleOwner) { status ->
             when (status) {
                 is Status.Success -> onSuccess(status.data)
-                is Status.Error -> onError(status.message)
+                is Status.Error -> onError()
                 is Status.Loading -> showProgress()
             }
         }
@@ -101,22 +103,29 @@ class DetailsFragment : Fragment() {
         playerAdapter.submitList(opponents?.getPlayers())
     }
 
-    private fun onError(message: String) {
+    private fun onError() {
         hideProgress()
-        Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).show()
+        binding.groupDetails.hide()
+        with(binding.errorview) {
+            root.show()
+            buttonTryAgain.setOnClickListener {
+                root.hide()
+                loadOpponents()
+            }
+        }
     }
 
     private fun showProgress() {
         with(binding) {
-            progressbar.isVisible = true
-            groupDetails.isVisible = false
+            progressbar.show()
+            groupDetails.hide()
         }
     }
 
     private fun hideProgress() {
         with(binding) {
-            progressbar.isVisible = false
-            groupDetails.isVisible = true
+            progressbar.hide()
+            groupDetails.show()
         }
     }
 

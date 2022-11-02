@@ -45,7 +45,7 @@ class HomeViewModel @Inject constructor(
                     list += liveMatches
 
                 body()?.let { list += it }
-                _onResult.postValue(Status.Success(list))
+                _onResult.postValue(Status.Success(list.filter { it.getFirstTeam() != null && it.getSecondTeam() != null }))
             } else
                 _onResult.postValue(Status.Error(errorBody().toString()))
         }

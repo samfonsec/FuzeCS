@@ -31,12 +31,10 @@ class MatchAdapter(
 
         fun bind(match: Match) {
             with(binding) {
-                match.getFirstTeam()?.let {
-                    matchview.setFirstTeam(it.name, it.image_url)
-                }
-                match.getSecondTeam()?.let {
-                    matchview.setSecondTeam(it.name, it.image_url)
-                }
+                val team1 = match.getFirstTeam()
+                val team2 = match.getSecondTeam()
+                matchview.setFirstTeam(team1?.name, team1?.image_url)
+                matchview.setSecondTeam(team2?.name, team2?.image_url)
                 imageviewLeague.loadImageOrPlaceholder(match.league.image_url)
                 textviewLeague.text = match.getLeagueAndSerie()
             }

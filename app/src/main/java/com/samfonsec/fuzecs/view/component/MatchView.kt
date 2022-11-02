@@ -11,14 +11,14 @@ class MatchView(context: Context, attrs: AttributeSet) : ConstraintLayout(contex
 
     private val binding = ComponentMatchViewBinding.inflate(LayoutInflater.from(context), this, true)
 
-    fun setFirstTeam(name: String, imageUri: String?) {
+    fun setFirstTeam(name: String?, imageUri: String?) {
         with(binding) {
             textviewTeam1Name.text = name
             imageviewTeam1.loadImageOrPlaceholder(imageUri)
         }
     }
 
-    fun setSecondTeam(name: String, imageUri: String?) {
+    fun setSecondTeam(name: String?, imageUri: String?) {
         with(binding) {
             textviewTeam2Name.text = name
             imageviewTeam2.loadImageOrPlaceholder(imageUri)

@@ -15,7 +15,5 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.FuzeCS.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="Theme.FuzeCS.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

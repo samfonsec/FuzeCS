@@ -74,13 +74,10 @@ class DetailsFragment : Fragment() {
     private fun buildUi() {
         match?.run {
             with(binding) {
+                toolbar.setNavigationOnClickListener { onBackButtonPressed() }
                 toolbar.title = getLeagueAndSerie(LEAGUE_SERIE_SEPARATOR)
-                getFirstTeam()?.let {
-                    matchviewDetails.setFirstTeam(it.name, it.image_url)
-                }
-                getSecondTeam()?.let {
-                    matchviewDetails.setSecondTeam(it.name, it.image_url)
-                }
+                getFirstTeam()?.let { matchviewDetails.setFirstTeam(it.name, it.image_url) }
+                getSecondTeam()?.let { matchviewDetails.setSecondTeam(it.name, it.image_url) }
                 textviewMatchTime.text = if (isLive())
                     getString(R.string.live)
                 else

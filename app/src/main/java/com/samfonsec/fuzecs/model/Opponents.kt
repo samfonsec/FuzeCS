@@ -13,7 +13,7 @@ data class Opponents(
 @Parcelize
 data class Opponent(
     val id: String,
-    val name: String,
+    val name: String?,
     val image_url: String,
     val players: List<Player>
 ) : Parcelable
@@ -28,7 +28,7 @@ data class OpponentsResponse(
 
         val listSize = max(team1.playerListSize(), team2.playerListSize())
         for (i in 0 until listSize) {
-            players.add(i, Pair(team1?.players?.get(i), team2?.players?.get(i)))
+            players.add(i, Pair(team1?.players?.getOrNull(i), team2?.players?.getOrNull(i)))
         }
 
         return players
